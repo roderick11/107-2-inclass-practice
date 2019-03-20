@@ -4,6 +4,8 @@ author: ""
 date: "3/20/2019"
 output: html_document
 ---
+
+#character
 ```{r}
 dialogue <- c("小明說：'明天不用上課。'",
                "小花說：'真的嗎？'")
@@ -15,13 +17,28 @@ cat(dialogue, sep="\n")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+#Logical
 ```{r}
 aLogical <- c(T,TRUE,F,FALSE,FALSE)
 class(aLogical)
 
 bLogical <- c(T,T,T,T,F)
 class(bLogical)
+
 sum(aLogical)
 sum(bLogical)
+```
+
+#Factor
+```{r}
+studentMajors <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+
+studentMajors <- factor(
+  c("法律系", "經濟系", "經濟系")
+)
+
+studentMajor <- c("經濟系", "經濟系", "法律系")
 ```
 
