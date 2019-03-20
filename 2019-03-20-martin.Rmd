@@ -63,6 +63,7 @@ stringInteger
 trueInteger
 ```
 
+#Date
 ```{r}
 library(lubridate)
 dtObject<-ymd_hms("1970-01-01 00:02:53") 
@@ -72,5 +73,12 @@ dtObjectVector<-ymd_hms(
 )
 class(dtObject)
 
+dtObject
+typeof(dtObject)
+as.integer(dtObject)
+as.double(dtObject)
+
+Sys.timezone()
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
 ```
 
