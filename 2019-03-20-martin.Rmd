@@ -42,3 +42,24 @@ studentMajors <- factor(
 studentMajor <- c("經濟系", "經濟系", "法律系")
 ```
 
+#howtosave
+```{r}
+birthplace <- factor(
+  c("台北市","台中市", "台中市", "台中市", "台北市")
+  )
+typeof(birthplace)
+levels(birthplace)
+as.integer(birthplace)
+```
+
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger)
+
+trueInteger <- as.integer(stringInteger)
+class(trueInteger)
+
+stringInteger
+trueInteger
+```
+
