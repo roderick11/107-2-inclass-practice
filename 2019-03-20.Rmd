@@ -9,3 +9,80 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+#character
+```{r}
+dialogue <- c("小明說：'明天不用上課。'",
+               "小花說：'真的嗎？'")
+
+cat(dialogue, sep="\n")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Logical
+```{r}
+aLogical <- c(T,TRUE,F,FALSE,FALSE)
+class(aLogical)
+
+bLogical <- c(T,T,T,T,F)
+class(bLogical)
+
+sum(aLogical)
+sum(bLogical)
+```
+
+#Factor
+```{r}
+studentMajors <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+
+studentMajors <- factor(
+  c("法律系", "經濟系", "經濟系")
+)
+
+studentMajor <- c("經濟系", "經濟系", "法律系")
+```
+
+#howtosave
+```{r}
+birthplace <- factor(
+  c("台北市","台中市", "台中市", "台中市", "台北市")
+  )
+typeof(birthplace)
+levels(birthplace)
+as.integer(birthplace)
+```
+
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger)
+
+trueInteger <- as.integer(stringInteger)
+class(trueInteger)
+
+stringInteger
+trueInteger
+```
+
+#Date
+```{r}
+library(lubridate)
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+class(dtObject)
+
+dtObject
+typeof(dtObject)
+as.integer(dtObject)
+as.double(dtObject)
+
+Sys.timezone()
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+```
