@@ -22,12 +22,19 @@ dtObject
 typeof(dtObject)
 as.integer(dtObject)
 as.double(dtObject)
+```
 
+#Date Practice
+```{r}
 Sys.timezone()
 twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
 LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
 LisbonDateTime
 
+typeof(twDateTime)
+as.double(twDateTime)
+typeof(LisbonDateTime)
+as.double(LisbonDateTime)
 ```
 
 ## R Markdown
