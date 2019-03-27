@@ -58,25 +58,99 @@ testdatetime2 <- mdy("March 3, 2019")
 testdatetime2
 ```
 
-
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+as.integer (ymd("1970-01-01"))
+as.integer (ymd("1970-01-02"))
+as.integer (ymd("2019-03-11"))
 ```
 
-## Including Plots
+#math
+```{r}
+a <- c(1, 5, -3)
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+a+bL
+aL+bL
+a-bL
+aL-bL
+a*bL
+aL*bL
+a/bL
+aL/bL
 
-You can also embed plots, for example:
+c <- 4
+c+a
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+class(a)
+class(aL)
+
+a^bL
+a %% bL
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+#datemath
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+twDateTime +1
+twDateTime +15972
+twDateTime2 <- ymd_hms("2019-03-18 18:30:12", tz="Asia/Taipei")
+
+twDateTime2 - twDateTime
+class(twDateTime2 - twDateTime)
+as.integer(twDateTime2 - twDateTime)
+as.numeric(twDateTime2 - twDateTime)
+as.difftime(twDateTime2 - twDateTime)
+```
+
+#operatedate
+```{r}
+startingDate <- ymd("2000-02-17")
+startingDate + years(1)
+startingDate + dyears(1)
+
+ymd("2000-02-01") -> startingDate
+ymd("2019-08-11") -> endingDate
+endingDate - startingDate
+```
+
+#code
+```{r}
+x <- 5
+y <- 7
+
+x2 <- c(1,5,10)
+y2 <- c(-1,y,20)
+
+x3 <- c("小明","小花")
+y3 <- c("小明","小華")
+x2 == y2
+x3 != y3
+x == y
+x = y
+x == y
+x == y2
+```
+
+#belong
+```{r}
+x4 <- c(1,5,8)
+y4 <- c(5,8)
+x4 %in% y4
+
+x5 <- c("台北市","新北市","高雄市")
+y5 <- c("台北市","新北市")
+x5 %in% y5
+```
+
+```{r}
+x2 <- c(1,NA,10)
+y2 <- c(-1,NA,20)
+
+x3 <- c(NA,"小花")
+y3 <- c(NA,"小華")
+x2 == y2
+x3 == y3
+```
+
+
+
