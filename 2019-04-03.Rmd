@@ -124,7 +124,115 @@ class(date)
 
 #2
 ```{r}
+isAfter19800801 <- 
+  date >= ymd("1980-08-01")
+isAfter19800801
+```
 
+```{r}
+head(as.integer(date))
+as.integer(ymd("1980-08-01"))
+head(date >= ymd("1980-08-01"))
+```
+
+```{r}
+class(isAfter19800801)
+sum(isAfter19800801)
+```
+
+#3
+```{r}
+head(currency)
+```
+
+```{r}
+head(currency == "歐元USD/EUR")
+isEURO <- currency == "歐元USD/EUR"
+```
+
+```{r}
+sum(isEURO)
+```
+
+#有將currency轉成factor
+```{r}
+currency <- as.factor(currency)
+isEURO <- currency == "歐元USD/EUR"
+sum(isEURO)
+```
+
+#4
+```{r}
+isExchangeRateNA <-
+  is.na(exchangeRate)
+sum(isExchangeRateNA)
+```
+
+#5
+```{r}
+isNotNA <- !isExchangeRateNA
+isEURO <- currency == "歐元USD/EUR"
+
+satisfyBoth <- isNotNA & isEURO
+sum(satisfyBoth)
+```
+
+
+#另一題
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+courseType <- transcriptDataFinal$`必選修類別（必∕選∕通）`
+major <- transcriptDataFinal$學系
+studentID <- transcriptDataFinal$學號
+grade <- transcriptDataFinal$學期成績
+```
+
+
+#1
+```{r}
+sum(major == "經濟學系")
+```
+
+#2
+```{r}
+sum(studentID == "5bdS6977b")
+```
+
+#3
+```{r}
+sum(
+  studentID == "5bdS6977b" &
+  grade >= 60
+)
+```
+
+#4
+```{r}
+sum(
+  major == "經濟學系" &
+    courseType == "選"
+)
+```
+
+#5
+```{r}
+sum(
+  major == "經濟學系" &
+    courseType == "必"
+) -> mom
+mom
+```
+```{r}
+sum(
+  major == "經濟學系" &
+    courseType == "必" &
+      grade < 60
+) -> kid
+kid
+```
+```{r}
+kid/mom
 ```
 
 
