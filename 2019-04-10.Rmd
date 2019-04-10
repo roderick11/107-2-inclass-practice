@@ -103,4 +103,25 @@ y2 <- as.integer(y)
 m2 <- as.integer(m)
 str_c("西元",y2+1911,"年",m2,"月")
 ```
+#第六章
+```{r}
+a<-c(1:3)
+typeof(a)
+a
+aWithNames <- c(
+  a1=1,
+  a2=2,
+  a3=3
+)
+typeof(a)
+aWithNames
+b1<-list("a","b",c(1:10))
+typeof(b1)
+b2<-list(
+  第一個="a",
+  第二個="b",
+  第三個=c(1:10))
+b1
+b2
+```
 
