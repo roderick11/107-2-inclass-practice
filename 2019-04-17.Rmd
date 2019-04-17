@@ -82,7 +82,7 @@ extract2[[1]]
 length(plasticContainer)
 plasticContainer[c(T,F,T)]
 成績單
-成績單[c(FALSE,TRUE,TRUE)]
+成績單[c(TRUE,TRUE,FALSE)]
 ```
 
 
