@@ -122,6 +122,8 @@ classSurvey <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data
 dim(classSurvey)
 classSurvey[c(1:60),c(4,5)]
 classSurvey[,c(4,5)]
+classSurvey[c(1:60),c(F,F,F,T,T,F)]
+classSurvey[,4]
 ```
 
 
