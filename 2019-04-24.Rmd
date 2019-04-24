@@ -40,6 +40,7 @@ StuList <- list(
   成績=c(80,60,90,70,50)
   )
 StuList 
+StuList[[2]][3]
 ```
 
 ```{r}
@@ -49,5 +50,38 @@ StuDF <- data.frame(
   成績=c(80,60,90,70,50)
   )
 StuDF 
+```
+
+```{r}
+StuDF[["姓名"]][[3]]
+```
+
+```{r}
+class(StuDF$姓名)
+
+StuDF$姓名 <- as.character(StuDF$姓名)
+class(StuDF$姓名)
+```
+
+```{r}
+class(StuList)
+as.data.frame(StuList) -> StuDF3
+
+class(StuDF3)
+StuDF3
+as.data.frame(StuList,stringsAsFactors = F) -> StuDF4
+class(StuDF4)
+StuDF4
+```
+
+
+```{r}
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
 ```
 
