@@ -86,3 +86,18 @@ StuDF4
 StuDF3
 ```
 
+```{r}
+LETTERS # R內設元素值為英文字母群的character vector
+chosenLETTERS <- LETTERS[1:15]
+matObj1 <- matrix(chosenLETTERS,5,3)
+matObj1
+tolower(matObj1)
+chosenLETTERS1 <- letters[3:11]
+matObj2 <- matrix(chosenLETTERS1,2,6)
+matObj2
+chosenLETTERS2 <- letters[4:12]
+matObj3 <- matrix(chosenLETTERS1,4,3)
+matObj3
+toupper(matObj3)
+```
+
