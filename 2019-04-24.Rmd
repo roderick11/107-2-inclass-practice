@@ -101,3 +101,15 @@ matObj3
 toupper(matObj3)
 ```
 
+```{r}
+chosenLETTERS[[8]]
+matObj1[c(1,4),c(2,3)]
+      #整列(橫) #整行(直)
+```
+
+```{r}
+matObj1
+matObj1[c(T,F,F,T,F),c(F,T,T)]
+matObj1[c(1,4),c(F,T,T)] #可以混搭
+```
+
