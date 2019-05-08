@@ -160,8 +160,11 @@ monthList
 unlist(monthList) -> monthVector
 monthVector
 
-str_c(as.character(westYear),monthVector,"01", sep = "-")
+str_c(as.character(westYear),monthVector,"01", sep = "-") -> westDates
+westDates
 
+ymd(westDates)
+westDates
 ```
 
 
