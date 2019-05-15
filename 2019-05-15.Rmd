@@ -118,6 +118,8 @@ gpa_fun <- function(studentID){
     sum(subSample$學分數) -> GPA
   return(GPA)
 }
+gpa_fun("479W9ee8e")
+gpa_fun("9efW9aea5")
 ```
 
 ```{r}
