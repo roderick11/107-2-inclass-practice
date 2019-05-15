@@ -95,3 +95,60 @@ exData3[logiAsiaCrisis, ]
 #exData3[exData3$isAsiaCrisis,]
 ```
 
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+```
+
+#找單一學生的資料
+```{r}
+ID <- "92aS67fee"
+transcriptDataFinal$學號 == ID -> ID1
+transcriptDataFinal [ID1,] 
+```
+
+#算GPA
+```{r}
+gpa_fun <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(GPA)
+}
+```
+
+```{r}
+utility_cobb_douglass <- function(x,y,.alpha,.beta){
+  utilValue <- x^.alpha*y^.beta # 程序產生output值
+  return(utilValue) # 傳回output值
+}
+```
+
+```{r}
+utility_cobb_douglass(1,2,0.5,0.8)
+```
+
+```{r}
+num <- function(x,.alpha){
+  num1 <- x+.alpha # 程序產生output值
+  return(num1) # 傳回output值
+}
+num(2,4)
+```
+
+```{r}
+supply_fun <- function(a,b,P){
+  Qs <- a+b*P
+  return(Qs)}
+demand_fun <- function(c,d,P){
+  Qd <- c-d*P
+  return(Qd)
+}
+class(supply_fun)
+supply_fun(0,1,1)
+demand_fun(5,1,1)
+```
+
