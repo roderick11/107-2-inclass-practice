@@ -60,8 +60,38 @@ b <- list(
   元素3=TRUE
 )
 
-b[[3]] <- FALSE
+b[[3]] <- FALSE #(b$元素3 <- FALSE)
 b[[5]] <- 7
+b[["元素4"]] <- c(1,2,3)
 b
+```
+
+```{r}
+library(readr)
+exData3 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/exData3.csv",
+                    col_types = cols(
+                      匯率 = col_number(),
+                      期間 = col_character()))
+exData3
+```
+#第一題
+```{r}
+library(lubridate)
+exData3[[1]] <- ymd(exData3[[1]])
+class(exData3[[1]])
+```
+#第二題
+```{r}
+time1 <- ymd("1997-06-01")
+time2 <- ymd("1998-12-01")
+exData3$isAsiaCrisis <- (exData3[[1]] >= time1 & exData3[[1]] <= time2)
+class(exData3$isAsiaCrisis)
+```
+#第三題
+```{r}
+logiAsiaCrisis <- exData3$isAsiaCrisis
+exData3[logiAsiaCrisis, ]
+#exData3[exData3$isAsiaCrisis==T ,]
+#exData3[exData3$isAsiaCrisis,]
 ```
 
