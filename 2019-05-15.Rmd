@@ -1,0 +1,46 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#dataframe colname/rownames
+```{r}
+Vector1 <- letters[1:6]
+Vector1
+
+names(Vector1)
+names(Vector1) <- c('名稱1','名稱2','名稱3','名稱4','名稱5','名稱6')
+names(Vector1)
+```
+
+```{r}
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
+```
+
+```{r}
+colnames(StuDF2) <- c("col1","col2","col3")
+StuDF2
+```
+
+```{r}
+colnames(StuDF2)[c(2,3)] <- c("name","grade")
+StuDF2
+```
+
+```{r}
+rownames(StuDF2) <- c("a","b","c","d","e")
+StuDF2
+rownames(StuDF2)[c(1,2,3)] <- c("A","B","C")
+StuDF2
+```
+
