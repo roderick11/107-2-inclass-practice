@@ -123,6 +123,15 @@ gpa_fun("9efW9aea5")
 ```
 
 ```{r}
+studentID <-"92aS67fee" 
+gpa_fun("479W9ee8e")
+gpa_fun("9efW9aea5")
+gpa_fun(studentID) # 使用global environmen裡物件studentID的值當輸入值
+gpa_fun("92aS67fee")
+```
+
+
+```{r}
 utility_cobb_douglass <- function(x,y,.alpha,.beta){
   utilValue <- x^.alpha*y^.beta # 程序產生output值
   return(utilValue) # 傳回output值
