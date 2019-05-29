@@ -1,0 +1,146 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(lubridate)
+now2 <- function(){
+  currentDateTime <- Sys.time()
+  hh<-hour(currentDateTime)
+  mm<-minute(currentDateTime)
+  cat("現在是",hh,"點",mm,"分")
+}
+```
+
+#browseURLoutputweb
+```{r}
+textbookURL <- function(){
+  browseURL("https://bookdown.org/tpemartin/ntpu-programming-for-data-science/")
+}
+```
+
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+
+```
+
+```{r}
+studentID <-"92aS67fee" 
+transcriptDataFinal$學號==studentID -> logiChosenStudent
+
+subSample <- transcriptDataFinal[logiChosenStudent,]
+
+sum(subSample$學期成績*subSample$學分數)/
+  sum(subSample$學分數) -> GPA
+```
+
+```{r}
+gpa_fun <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(GPA)
+}
+```
+
+```{r}
+gpa_fun2 <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(
+    list(
+      平均成績=GPA,
+      成績單=subSample
+      )
+  )
+}
+```
+
+```{r}
+demand_supply_fun <- function(P,a,b,c,d){
+ Qs <- a+b*P
+ Qd <- c-d*P
+ return(
+  list(
+    供給量 = Qs,
+    需求量 = Qd,
+    超額供給 = Qs- Qd
+  )
+ )
+}
+```
+
+#條件輸入
+```{r}
+a <- readline(prompt = "請輸入一個數字： ")
+if(a < 0) {
+  print("a為負值")
+}
+```
+
+```{r}
+a<-0
+b<-1
+supply_fun <- function(P,a,b){
+  Qs <- a+b*P
+  return(Qs)
+}
+supply_fun(P=-1,0,1)
+```
+
+```{r}
+supply_fun2 <- function(P,a,b){
+  Qs <- a+b*P
+  if(P>=0) {
+    return(Qs)
+  }
+}
+supply_fun2(P=-1,0,1)
+supply_fun2(P=2,0,1)
+```
+
+```{r}
+supply_fun3 <- function(P,a,b){
+  Qs <- a+b*P
+  if(P < 0) {
+    message("P不能為負值") # 在螢幕出現的「錯誤」提示，沒有輸出任何值
+  } else {
+    return(Qs)
+  }
+}
+supply_fun3(P=-1,0,1)
+supply_fun3(P=2,0,1)
+```
+
+#練習
+```{r}
+gpa_fun <- function(studentID){
+  if(studentID %in% transcriptDataFinal$`學號`){
+    transcriptDataFinal$`學號`==studentID -> logiChosenStudent
+    subSample <- transcriptDataFinal[logiChosenStudent,]
+    sum(subSample$`學期成績`*subSample$`學分數`)/
+    sum(subSample$`學分數`) -> GPA
+    return(GPA)
+  }
+  else{
+      message("no such ID")
+  }
+}
+
+gpa_fun("92aS67fee") # 顯示82.85276
+gpa_fun("aa829838s") # 查無此學號
+```
+
