@@ -125,7 +125,7 @@ supply_fun3(P=-1,0,1)
 supply_fun3(P=2,0,1)
 ```
 
-#練習
+#練習 #%in%屬於 #==只會出現TRUE或False
 ```{r}
 gpa_fun <- function(studentID){
   if(studentID %in% transcriptDataFinal$`學號`){
@@ -142,5 +142,19 @@ gpa_fun <- function(studentID){
 
 gpa_fun("92aS67fee") # 顯示82.85276
 gpa_fun("aa829838s") # 查無此學號
+```
+
+#elseif
+```{r}
+a <- readline(prompt = "請輸入一個數字： ")
+if(a==1) {
+  print("你輸入了1")
+} else if(a==2) {
+  print("你輸入了2")
+} else if(a==3) {
+  print("你輸入了3")
+} else {
+  print("你輸入了其他數字")
+}
 ```
 
