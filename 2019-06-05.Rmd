@@ -40,9 +40,64 @@ gpa_fun(transcriptDataFinal$學號)
 ```{r}
 studentIds <- unique(transcriptDataFinal$學號) # 全部可能學號
 # 以前5筆學號為sequence_source
+```
+
+#作法一
+```{r}
 studentIds5 <- studentIds[1:5]
 for(i in studentIds5){
   print(i) # 印出studentIds5[[i]]
+}
+```
+
+#作法二
+```{r}
+for(i in c(1:5)){
+  print(i) 
+}
+for(i in c(1:5)){
+  print(studentIds5[[i]]) # 
+}
+```
+
+#作法三c()改用seq_along()
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+
+#練習二
+```{r}
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+```
+
+#作法一
+```{r}
+for(i in gmailAddress){
+  print(i) # 印出studentIds5[[i]]
+}
+```
+
+#作法二
+```{r}
+for(i in c(1:4)){
+  print(i) 
+}
+for(i in c(1:4)){
+  print(gmailAddress[[i]]) # 
+}
+```
+
+#作法三
+```{r}
+for(i in seq_along(gmailAddress)){
+  print(gmailAddress[[i]])
 }
 ```
 
