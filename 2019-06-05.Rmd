@@ -12,6 +12,37 @@ utility_cobb_douglass(1,2,0.5,0.8)
 ```
 
 ```{r}
-utility_cobb_douglass(1,.beta=0.8,2,.alpha=0.5)
+utility_cobb_douglass(.beta=0.8,1,.alpha=0.5,2)
+```
+
+#迴圈
+```{r}
+load(url("https://github.com/tpemartin/github-data/blob/master/loopTranscriptData.Rda?raw=true"))
+```
+
+```{r}
+gpa_fun <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(GPA)
+}
+```
+
+
+```{r}
+gpa_fun(transcriptDataFinal$學號)
+```
+
+```{r}
+studentIds <- unique(transcriptDataFinal$學號) # 全部可能學號
+# 以前5筆學號為sequence_source
+studentIds5 <- studentIds[1:5]
+for(i in studentIds5){
+  print(i) # 印出studentIds5[[i]]
+}
 ```
 
