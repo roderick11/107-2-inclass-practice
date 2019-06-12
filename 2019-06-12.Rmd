@@ -51,3 +51,116 @@ cat("修正後狀況\n")
 gmailAddress
 ```
 
+#練習
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+
+```{r}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$author$name)
+}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$committer$name)
+}
+```
+
+#教授fancy
+```{r}
+for(i in seq_along(commitHistory)){
+  print(
+    str_c(
+      "Author is ",
+      commitHistory[[i]][["commit"]][["author"]][["name"]],
+      ". Committer is ",
+      commitHistory[[i]][["commit"]][["committer"]][["name"]]
+      )
+    )
+}
+```
+
+#練習
+```{r}
+#sequence source
+commitHistory
+```
+```{r}
+#body
+#print「第i個」commit的author等於committer的邏輯判斷結果。
+i <- 1
+logiResult <- (commitHistory[[i]][["commit"]][["author"]][["name"]]
+  ==commitHistory[[i]][["commit"]][["committer"]][["name"]])
+print(logiResult)
+```
+```{r}
+#for loop
+for(i in seq_along(commitHistory)){
+  logiResult <- (commitHistory[[i]][["commit"]][["author"]][["name"]]==
+     commitHistory[[i]][["commit"]][["committer"]][["name"]])
+  print(logiResult)  
+}
+```
+
+#output
+#vector(mode,length)
+```{r}
+saveCharacter <- vector("character",5)
+saveCharacter
+
+saveNumeric <- vector("numeric",5)
+saveNumeric
+
+saveLogical <- vector("logical",5)
+saveLogical
+
+saveList <- vector("list",5)
+saveList
+```
+
+```{r}
+# 把"你好"存在saveCharacter第3個位置
+saveCharacter # 儲存前
+saveCharacter[[3]] <- "你好"
+saveCharacter # 儲存後
+
+# 把 72.3 存在saveNumeric第3個位置
+saveNumeric # 儲存前
+saveNumeric[[3]] <- 72.3
+saveNumeric # 儲存後
+
+# 把 TRUE 存在saveLogical第3個位置
+saveLogical # 儲存前
+saveLogical[[3]] <- TRUE
+saveLogical # 儲存後
+
+# 把 list(姓名="小明",電話="02-86741111") 存在saveList第3個位置
+saveList # 儲存前
+saveList[[3]] <- list(姓名="小明",電話="02-86741111")
+saveList # 儲存後
+```
+
+##save all
+#save container
+```{r}
+savecommit <- vector("character",length(commitHistory))
+```
+#sequence source
+```{r}
+commitHistory
+```
+#body
+```{r}
+i <- 1
+savecommit[[i]] <- commitHistory[[i]]$commit$committer$name
+savecommit
+```
+#for loop
+```{r}
+savecommit <-
+  vector("character",length(commitHistory)) # 0.
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$author$name -> savecommit[[i]]
+}
+savecommit
+```
+
