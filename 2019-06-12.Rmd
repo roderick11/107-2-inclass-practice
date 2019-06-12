@@ -164,3 +164,17 @@ for(i in seq_along(commitHistory)){
 savecommit
 ```
 
+```{r}
+logiresult <- vector("logical",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  logiresult[[i]] <- (commitHistory[[i]]$commit$author$name
+        ==commitHistory[[i]]$commit$committer$name)
+}
+commitDATE <- vector("character",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  commitHistory[[i]]$commit$committer$date -> commitDATE[[i]]
+}
+commitDATE[logiresult] -> commitDatee
+commitDatee
+```
+
